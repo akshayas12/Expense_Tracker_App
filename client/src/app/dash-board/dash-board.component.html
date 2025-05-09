@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+</head>
+<body>
+
+  <img src="assets/15-useful-tips-to-save-money-for-later-use-in-life-717x404.webp" alt="Background" class="bg-img">
+
+  <div class="top-nav">
+    <h1>Expense Tracker</h1>
+    <div class="nav-buttons">
+      <button routerLink="/profile">Profile</button>
+      <button routerLink="/addExpense">Add Expense</button>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Total Expense: {{ totalExpenses }}</h1>
+
+    <div class="charts-container">
+      <canvas id="barChart"></canvas>
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Expense History</h2>
+
+    <div class="filter-controls">
+      <label>
+        Month:
+        <select [(ngModel)]="selectedMonth">
+          <option value="">All</option>
+          <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+        </select>
+      </label>
+
+      <label>
+        Year:
+        <select [(ngModel)]="selectedYear">
+          <option value="">All</option>
+          <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+        </select>
+      </label>
+
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search by category or date" class="search-bar"/>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of paginatedExpenses">
+          <td>{{ expense.date | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ expense.category?.name || 'Unknown' }}</td>
+          <td>${{ expense.amount }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button (click)="downloadExcelFromBackend()">Download Excel</button>
+
+    <div class="pagination">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+      <span>Page {{ currentPage }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= filteredExpenses.length">Next</button>
+    </div>
+  </div>
+
+</body>
+</html>

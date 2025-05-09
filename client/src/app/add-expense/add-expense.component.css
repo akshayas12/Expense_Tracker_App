@@ -1,0 +1,373 @@
+body { 
+  font-family: 'Poppins', sans-serif; 
+  margin: 0; 
+  padding: 0; 
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  min-height: 100vh;
+} 
+
+.top-nav { 
+  width: 100%; 
+  background: linear-gradient(135deg, #2a2b2d, #1a73e8); 
+  color: white; 
+  padding: 15px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); 
+  z-index: 1000; 
+} 
+
+.nav-buttons { 
+  display: flex; 
+  gap: 10px; 
+} 
+
+.nav-buttons button { 
+  color: white; 
+  background: rgba(255, 255, 255, 0.2); 
+  border: none; 
+  font-size: 16px; 
+  cursor: pointer; 
+  padding: 10px 15px; 
+  border-radius: 8px; 
+  transition: all 0.3s ease; 
+} 
+
+.nav-buttons button:hover { 
+  background: rgba(255, 255, 255, 0.5); 
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} 
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 480px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+/* Add Category Form Styling */
+form.add-category-form {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form.add-category-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+form.add-category-form input {
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+}
+
+form.add-category-form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  outline: none;
+  background-color: #fff;
+}
+
+form.add-category-form input::placeholder {
+  color: #94a3b8;
+}
+
+form.add-category-form button {
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+form.add-category-form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: left 0.7s ease;
+}
+
+form.add-category-form button:hover {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+form.add-category-form button:hover::before {
+  left: 100%;
+}
+
+form.add-category-form button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (min-width: 640px) {
+  form.add-category-form {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  form.add-category-form input {
+    flex: 1;
+  }
+  
+  form.add-category-form button {
+    min-width: 140px;
+  }
+}
+/* Enhanced Category Input Styling */
+.category-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  background: white;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-input-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-input-group input {
+  flex-grow: 1;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 12px 15px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+}
+
+.category-input-group input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.25);
+  outline: none;
+  background-color: #fff;
+}
+
+.category-input-group input::placeholder {
+  color: #a0aec0;
+  font-size: 15px;
+}
+
+/* Enhanced Add Category Button */
+.category-input-group button {
+  background: linear-gradient(135deg, #00c853, #009624);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 130px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-input-group button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: left 0.7s;
+}
+
+.category-input-group button:hover {
+  background: linear-gradient(135deg, #00b34a, #00861f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.category-input-group button:hover::before {
+  left: 100%;
+}
+
+.category-input-group button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stylish-form { 
+  width: 100%;
+  background: white; 
+  padding: 30px; 
+  border-radius: 16px; 
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+} 
+
+.stylish-form:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.15); 
+} 
+
+.stylish-form h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 24px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.stylish-form h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #1a73e8, #0d62c9);
+  border-radius: 3px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+  text-align: left;
+  font-size: 16px;
+}
+
+.form-control, .form-select {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #e1e5eb;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.25);
+  background-color: #fff;
+  outline: none;
+}
+
+.error-message {
+  color: #e53e3e;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.mb-3 {
+  margin-bottom: 20px;
+}
+
+.stylish-button { 
+  font-size: 18px; 
+  padding: 14px; 
+  border-radius: 10px; 
+  background: linear-gradient(135deg, #1a73e8, #0d62c9);
+  color: white;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} 
+
+.stylish-button:hover:not([disabled]) { 
+  background: linear-gradient(135deg, #0d62c9, #0953b3); 
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+} 
+
+.stylish-button:disabled {
+  background: linear-gradient(135deg, #a9b4c2, #8c99a9);
+  cursor: not-allowed;
+}
+
+/* Add animation for form submission */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.stylish-button:active:not([disabled]) {
+  animation: pulse 0.3s;
+  transform: scale(0.98);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .category-input-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .category-input-group button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,28 @@
+<div class="top-nav">
+  <h1>Expense Tracker</h1>
+  <div class="nav-buttons">
+    <button routerLink="/addExpense">Add Expense</button>
+    <button routerLink="/dashboard">Dashboard</button>
+
+  </div>
+</div>
+<div class="profile-container">
+  <h2>User Profile</h2>
+
+
+  <div class="profile-details">
+    <label>Username:</label>
+    <input type="text" [(ngModel)]="user.username" disabled>
+
+    <label>Email:</label>
+    <input type="email" [(ngModel)]="user.email" disabled>
+
+    <label>Phone:</label>
+    <input type="text" [(ngModel)]="user.phone">
+
+    <label>Place:</label>
+    <input type="text" [(ngModel)]="user.place">
+  </div>
+
+  <button (click)="updateProfile()">Save Changes</button>
+</div>

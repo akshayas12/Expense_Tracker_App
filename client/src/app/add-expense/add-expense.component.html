@@ -1,0 +1,37 @@
+<div class="top-nav">
+    <h1>Expense Tracker</h1>
+    <div class="nav-buttons">
+        <button routerLink="/dashboard">DashBoard</button>
+        <button>Profile</button>
+        <button>Add Expense</button>
+        <button (click)="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div>
+        <form class="add-category-form">
+            <h1>Add New Category</h1>
+            <br><br>
+            <input type="text" #newCategory placeholder="Enter new category" class="form-control" />
+            <button type="button" (click)="addNewCategory(newCategory.value); newCategory.value=''">Add Category</button>
+        </form>
+        <form [formGroup]="expenseForm" (ngSubmit)="addExpense()" class="shadow p-4 bg-white rounded stylish-form text-center">
+            <h1>Add New Expense</h1>
+            <div class="mb-3">
+                <label class="form-label">Category:</label>
+                <select id="category" formControlName="category" class="form-select" required>
+                    <option value="">Select Category</option>
+                    <option *ngFor="let cat of categories" [value]="cat._id">{{ cat.name }}</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Amount:</label>
+                <input type="number" formControlName="amount" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100 stylish-button" [disabled]="expenseForm.invalid">Save</button>
+        </form>
+    </div>
+</div>
