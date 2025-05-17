@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthServiceService {
-private apiUrl='http://localhost:3000/userAuth'
+private apiUrl='https://expensetrackerbackend-7qyq.onrender.com/userAuth'
   constructor(private http:HttpClient) { }
   register(user: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, user);
   }
   verifyEmail(token: string) {
-    return this.http.get(`http://localhost:3000/userAuth/verify-email?token=${token}`);
+    return this.http.get(`https://expensetrackerbackend-7qyq.onrender.com/userAuth/verify-email?token=${token}`);
   }
   login(user: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, user);
