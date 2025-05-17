@@ -19,7 +19,7 @@ export interface CategoryResponse {
   providedIn: 'root'
 })
 export class ExpenseService {
-  private apiUrl = 'http://localhost:3000/expense';  
+  private apiUrl = 'https://expensetrackerbackend-7qyq.onrender.com/expense';  
 
   constructor(private http: HttpClient) {}
 
