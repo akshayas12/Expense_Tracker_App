@@ -15,7 +15,7 @@ export class ProfileService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this.http.get('http://localhost:3000/profile/getProfile', { headers });
+    return this.http.get('https://expensetrackerbackend-7qyq.onrender.com/profile/getProfile', { headers });
   }
 
   updateProfile(userData: any): Observable<any> {
@@ -24,7 +24,7 @@ export class ProfileService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this.http.put('http://localhost:3000/profile/updateProfile', userData, { headers });
+    return this.http.put('https://expensetrackerbackend-7qyq.onrender.com/profile/updateProfile', userData, { headers });
   }
 
   uploadProfileImage(formData: FormData): Observable<any> {
@@ -33,6 +33,6 @@ export class ProfileService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this.http.post('http://localhost:3000/profile/uploadProfileImage', formData, { headers });
+    return this.http.post('https://expensetrackerbackend-7qyq.onrender.com/profile/uploadProfileImage', formData, { headers });
   }
 }
