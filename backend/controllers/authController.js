@@ -57,7 +57,7 @@ const emailVerification = async (req, res) => {
 
         await User.findByIdAndUpdate(decoded.userId, { isVerified: true });
 
-        res.redirect("https://expense-tracker-frontend-zki5.onrender.com/login"); // Redirect to frontend login page
+        res.redirect("https://expensetracker-frontend-knd2.onrender.com/login"); // Redirect to frontend login page
     } catch (error) {
         res.status(400).json({ message: "Invalid or expired token." });
     }
