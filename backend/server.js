@@ -9,7 +9,7 @@ const session = require('express-session');
 dotenv.config();
 const app=express();
 app.use(cors({
-    origin: 'https://expense-tracker-frontend-zki5.onrender.com',
+    origin: 'https://expensetracker-frontend-knd2.onrender.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
